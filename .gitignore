@@ -1,0 +1,26 @@
+# Entorno virtual
+.venv/
+env/
+.env
+
+# Caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Configuración de VSCode
+.vscode/
+
+# Archivos de logs
+*.log
+
+# Archivos de bases de datos temporales
+*.sqlite3
+
+# Otros archivos temporales
+*.tmp
+*.bak
+.DS_Store
+
+postgres_data/
