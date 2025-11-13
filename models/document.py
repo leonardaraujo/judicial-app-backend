@@ -9,4 +9,5 @@ class Document(Base):
     crime = Column(Text)
     verdict = Column(Text)
     cited_jurisprudence = Column(Text)  
-    file_path = Column(String(255))  # Nuevo campo para la ruta del archivo
+    file_path = Column(String(255))
+    detected_names = Column(Text)
