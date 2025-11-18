@@ -4,6 +4,7 @@ uv run uvicorn main:app --reload --env-file .env.dev
 
 # Correr en VPS (producción)
 uv run uvicorn main:app --host 0.0.0.0 --port 8000 --env-file .env.prod
+env $(cat .env.prod | xargs) gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:8000
 
 # Correr el servidor
 uv run uvicorn main:app --reload
@@ -22,3 +23,6 @@ python -m database.initial.create_tables
 
 # Instalar dependencias
 uv sync
+
+# Modo .venv vps
+source .venv/bin/activate
