@@ -1,14 +1,14 @@
 services:
-  # postgres:
-  #   image: postgres:15
-  #   environment:
-  #     POSTGRES_DB: judicial_db
-  #     POSTGRES_USER: judicial
-  #     POSTGRES_PASSWORD: xdLhH0k3t3b2
-  #   ports:
-  #     - "5432:5432"
-  #   volumes:
-  #     - ./postgres_data:/var/lib/postgresql/data
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: judicial_db
+      POSTGRES_USER: judicial
+      POSTGRES_PASSWORD: judicial123
+    ports:
+      - "5433:5432"  # Cambia aquí el puerto externo
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
 
   qdrant:
     image: qdrant/qdrant:v1.7.3
@@ -16,13 +16,3 @@ services:
       - "6333:6333"
     volumes:
       - ./qdrant_data:/qdrant/storage
-
-  # backend:
-  #   build: .
-  #   ports:
-  #     - "8000:8000"
-  #   volumes:
-  #     - ./uploaded_docs:/app/uploaded_docs
-  #   depends_on:
-  #     - postgres
-  #     - qdrant

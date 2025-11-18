@@ -24,3 +24,12 @@ __pycache__/
 .DS_Store
 
 postgres_data/
+
+# variables de entorno
+.env.dev
+.env.prod
+.env
+
+# data de qdrant y postgres
+qdrant_data/
+postgres_data

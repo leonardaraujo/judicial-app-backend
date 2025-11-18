@@ -15,7 +15,7 @@ app.add_middleware(
 )
 
 
-@app.get("/ping")
+@app.get("/")
 def ping():
     return {"message": "pong"}
 
