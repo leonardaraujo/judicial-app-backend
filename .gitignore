@@ -33,3 +33,6 @@ postgres_data/
 # data de qdrant y postgres
 qdrant_data/
 postgres_data
+
+# Configuracion gunicorn
+deploy/*.service
