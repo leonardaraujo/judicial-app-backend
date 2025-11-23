@@ -17,8 +17,8 @@ source .venv/bin/activate
 ### Desarrollo
 #### Windows
 ```powershell
-set DOTENV_FILE=.env.dev
-python -m database.initial.create_tables
+uv run --env-file .env.dev python -m database.initial.create_tables
+uv run python -m database.initial.init_qdrant
 ```
 #### Linux/macOS
 ```bash
@@ -51,7 +51,7 @@ uv run uvicorn main:app --host 0.0.0.0 --port 8000 --env-file .env.prod
 ```
 O con Gunicorn:
 ```bash
-env $(cat .env.prod | xargs) gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:8000
+env $(cat .env.prod | xargs) gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:8000
 ```
 
 ## 5. Actualización de código en VPS

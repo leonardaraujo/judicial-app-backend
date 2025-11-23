@@ -3,6 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from controllers.document_controller import router as documento_router
 from controllers.document_crud_controller import router as crud_router
 from controllers.search_controller import router as search_router
+from controllers.auth_controller import router as auth_router
+from controllers.test_controller import router as test_router
+from controllers.user_controller import router as user_router
+from controllers.pdf_controller import include_static
+from controllers.resume_ia_controller import router as resume_ia_router
 
 app = FastAPI()
 
@@ -23,3 +28,8 @@ def ping():
 app.include_router(documento_router)
 app.include_router(crud_router)
 app.include_router(search_router)
+app.include_router(auth_router, prefix="/auth")
+app.include_router(test_router)
+app.include_router(user_router)
+app.include_router(resume_ia_router)
+include_static(app)
