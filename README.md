@@ -29,13 +29,13 @@ python -m database.initial.create_tables
 ### Producción
 #### Windows
 ```powershell
-set DOTENV_FILE=.env.prod
-python -m database.initial.create_tables
+uv run --env-file .env.dev python -m database.initial.create_tables
+uv run --env-file .env.dev python -m database.initial.init_qdrant
 ```
 #### Linux/macOS
 ```bash
-export DOTENV_FILE=.env.prod
-python -m database.initial.create_tables
+uv run --env-file .env.prod python3 -m database.initial.create_tables
+uv run --env-file .env.prod python3 -m database.initial.init_qdrant
 ```
 
 ## 4. Correr el servidor

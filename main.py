@@ -13,7 +13,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://judicial-app-frontend.vercel.app"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://app.judicial.leonardoaraujo.net.pe",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
